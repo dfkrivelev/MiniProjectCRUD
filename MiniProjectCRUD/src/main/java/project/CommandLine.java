@@ -4,34 +4,37 @@ import java.util.Scanner;
 
 public class CommandLine {
     public void exec() {
-        Database database = new Database(DbInit.init());
+        Database database = new Database(DbInit.employees);
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("# ");
             String cmd = scanner.next();
-            switch (cmd.toLowerCase().charAt(0)) {
-                case 'c':
+            switch (cmd.toLowerCase()) {
+                case "create":
                     database.create();
                     break;
-                case 'r':
+                case "read":
                     database.read();
                     break;
-                case 'u':
+                case "update":
                     database.update();
                     break;
-                case 'd':
+                case "delete":
                     database.delete();
                     break;
-                case 'f':
+                case "find":
                     database.find();
                     break;
-                case 'p':
-                    database.positions();
-                    break;
-                case 's':
+                case "sort":
                     database.sort();
                     break;
-                case 'x':
+                case "save":
+                    database.save();
+                    break;
+                case "load":
+                    database.load();
+                    break;
+                case "exit":
                     System.out.println("Exit of command line.");
                     return;
                 default:

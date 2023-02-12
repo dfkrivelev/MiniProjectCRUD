@@ -1,15 +1,19 @@
 package project;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private int id;
     private String name;
-    private Position position;
+    private String lastName;
+    private String position;
     private int salary;
     private int age;
     private static int count = 0;
 
-    public Employee(String name, Position position, int salary, int age) {
+    public Employee(String name, String lastName, String position, int age, int salary) {
         this.name = name;
+        this.lastName = lastName;
         this.position = position;
         this.salary = salary;
         this.age = age;
@@ -24,7 +28,7 @@ public class Employee {
         return name;
     }
 
-    public Position getPosition() {
+    public String getPosition() {
         return position;
     }
 
@@ -32,11 +36,35 @@ public class Employee {
         return salary;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public int getAge() {
         return age;
     }
 
-    public void update(Position position, int salary, int age) {
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void update(String position, int salary, int age) {
         this.position = position;
         this.salary = salary;
         this.age = age;
@@ -47,6 +75,7 @@ public class Employee {
         return "{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +
                 ", age=" + age +

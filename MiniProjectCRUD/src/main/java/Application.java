@@ -1,10 +1,10 @@
 import project.CommandLine;
 
 /**
- * Java Prof. Homework #21
+ * Java Prof. MiniProjectCRUD
  *
  * @author Dzmitry Kryvialeu
- * @version 26.01 - 29.01
+ * @version 0.1
  */
 
 public class Application {

@@ -1,5 +1,6 @@
 package project;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,34 +28,19 @@ public class DataUtil {
     public static Employee getEmployee(String prompt) {
         System.out.println(prompt);
         String name = scanner.next();
-        Position position = getPosition();
-        if (position == null) {
-            return null;
-        }
+        String lastName = scanner.next();
+        String position = scanner.next();
         int salary = scanner.nextInt();
         int age = scanner.nextInt();
-        return new Employee(name, position, salary, age);
+        return new Employee(name, lastName, position, salary, age);
     }
 
     public static Employee getEmployeePart(String prompt) {
         System.out.println(prompt);
-        Position position = getPosition();
-        if (position == null) {
-            return null;
-        }
+        String position = scanner.next();
+        String lastName = scanner.next();
         int salary = scanner.nextInt();
         int age = scanner.nextInt();
-        return new Employee(null, position, salary, age);
-    }
-
-    private static Position getPosition() {
-        String value = scanner.next();
-        try {
-            Position position = Position.valueOf(value.toUpperCase());
-            return position;
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: Position " + value + " not found");
-            return null;
-        }
+        return new Employee(null, lastName, position, salary, age);
     }
 }
