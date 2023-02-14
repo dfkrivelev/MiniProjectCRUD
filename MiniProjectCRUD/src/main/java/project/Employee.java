@@ -9,7 +9,7 @@ public class Employee implements Serializable {
     private String position;
     private int salary;
     private int age;
-    private static int count = 0;
+    private static int count;
 
     public Employee(String name, String lastName, String position, int age, int salary) {
         this.name = name;
@@ -17,6 +17,11 @@ public class Employee implements Serializable {
         this.position = position;
         this.salary = salary;
         this.age = age;
+        if(DbInit.employees.isEmpty()){
+            count = 0;
+        }else {
+            count = DbInit.employees.get(DbInit.employees.size() - 1).getId();
+        }
         this.id = ++count;
     }
 

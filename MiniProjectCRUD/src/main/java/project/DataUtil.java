@@ -1,6 +1,5 @@
 package project;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,17 +29,8 @@ public class DataUtil {
         String name = scanner.next();
         String lastName = scanner.next();
         String position = scanner.next();
-        int salary = scanner.nextInt();
         int age = scanner.nextInt();
-        return new Employee(name, lastName, position, salary, age);
-    }
-
-    public static Employee getEmployeePart(String prompt) {
-        System.out.println(prompt);
-        String position = scanner.next();
-        String lastName = scanner.next();
         int salary = scanner.nextInt();
-        int age = scanner.nextInt();
-        return new Employee(null, lastName, position, salary, age);
+        return new Employee(name, lastName, position, age, salary);
     }
 }

@@ -5,7 +5,6 @@ import java.util.*;
 
 public class Database {
     List<Employee> employeeList;
-    Map<Integer, Employee> indexMap;
     String path = "D:\\Dima\\JavaProject\\CRUD.txt";
     Scanner scanner = new Scanner(System.in);
 
@@ -13,11 +12,6 @@ public class Database {
         //create list
         this.employeeList = new ArrayList<>();
         this.employeeList.addAll(employeeList);
-        //create map (index)
-        this.indexMap = new HashMap<>();
-        for (Employee employee : DbInit.employees) {
-            indexMap.put(employee.getId(), employee);
-        }
     }
 
     public void create() {
