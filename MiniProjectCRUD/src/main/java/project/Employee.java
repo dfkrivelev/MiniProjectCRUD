@@ -1,6 +1,7 @@
 package project;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Employee implements Serializable {
     private int id;
@@ -11,7 +12,7 @@ public class Employee implements Serializable {
     private int age;
     private static int count;
 
-    public Employee(String name, String lastName, String position, int age, int salary) {
+    public Employee(String name, String lastName, String position, int salary, int age) {
         this.name = name;
         this.lastName = lastName;
         this.position = position;
@@ -85,5 +86,18 @@ public class Employee implements Serializable {
                 ", salary=" + salary +
                 ", age=" + age +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && salary == employee.salary && age == employee.age && name.equals(employee.name) && lastName.equals(employee.lastName) && position.equals(employee.position);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastName, position, salary, age);
     }
 }

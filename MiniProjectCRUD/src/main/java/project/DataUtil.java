@@ -29,8 +29,11 @@ public class DataUtil {
         String name = scanner.next();
         String lastName = scanner.next();
         String position = scanner.next();
-        int age = scanner.nextInt();
-        int salary = scanner.nextInt();
-        return new Employee(name, lastName, position, age, salary);
+        int salary = scanner.hasNextInt() ? scanner.nextInt() : 0;
+        int age = scanner.hasNextInt() ? scanner.nextInt() : 0;
+        if(salary == 0 || age == 0){
+            System.out.println("Добавлено для исправления");
+        }
+        return new Employee(name, lastName, position, salary, age);
     }
 }

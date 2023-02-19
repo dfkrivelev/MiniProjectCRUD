@@ -14,47 +14,28 @@ public class Database {
         this.employeeList.addAll(employeeList);
     }
 
-    public void create() {
+    public void createOne() {
         Employee employee;
-        String createName = DataUtil.getString("create: createOne, createMany");
-        switch (createName.toLowerCase()) {
-            case "createone":
+        employee = DataUtil.getEmployee("create: ");
+        DbInit.employees.add(employee);
+    }
 
-                employee = DataUtil.getEmployee("create: ");
-                DbInit.employees.add(employee);
-                break;
-            case "createmany":
-                System.out.println("createMany: ");
-                String list = scanner.nextLine();
+    public void createMany() {
+        Employee employee;
+        String list = scanner.nextLine();
 
-                String[] parts = list.split(", ");
-                List<Employee> employeeList = new ArrayList<>();
+        String[] parts = list.split(", ");
 
-                for (int i = 0; i < parts.length; i++) {
-                    String[] objects = parts[i].split(" ");
-                    String firstName = objects[0];
-                    String lastName = objects[1];
-                    String position = objects[2];
-                    int age = Integer.parseInt(objects[3]);
-                    int salary = Integer.parseInt(objects[4]);
+        for (int i = 0; i < parts.length; i++) {
+            String[] objects = parts[i].split(" ");
+            String firstName = objects[0];
+            String lastName = objects[1];
+            String position = objects[2];
+            int salary = Integer.parseInt(objects[3]);
+            int age = Integer.parseInt(objects[4]);
 
-                    employee = new Employee(firstName, lastName, position, age, salary);
-                    DbInit.employees.add(employee);
-                }
-
-                if (list.endsWith(",")) {
-                    System.out.println("Неправильно введены данные" + list);
-                } else {
-                    String[] object = list.substring(list.lastIndexOf(", ") + 2).split(" ");
-                    String firstName = object[0];
-                    String lastName = object[1];
-                    String position = object[2];
-                    int age = Integer.parseInt(object[3]);
-                    int salary = Integer.parseInt(object[4]);
-                    employee = new Employee(firstName, lastName, position, age, salary);
-                    employeeList.add(employee);
-                    break;
-                }
+            employee = new Employee(firstName, lastName, position, salary, age);
+            DbInit.employees.add(employee);
         }
     }
 

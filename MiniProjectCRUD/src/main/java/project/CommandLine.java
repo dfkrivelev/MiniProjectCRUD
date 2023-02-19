@@ -10,8 +10,11 @@ public class CommandLine {
             System.out.print("# ");
             String cmd = scanner.next();
             switch (cmd.toLowerCase()) {
-                case "create":
-                    database.create();
+                case "createone":
+                    database.createOne();
+                    break;
+                case "createmany":
+                    database.createMany();
                     break;
                 case "read":
                     database.read();
@@ -38,7 +41,8 @@ public class CommandLine {
                     System.out.println("Exit of command line.");
                     return;
                 default:
-                    System.out.println("List of command: c[reate], r[ead], u[pdate], d[elete]");
+                    System.out.println("Список комманд: createOne, createMany, read, update, delete, find, sort, " +
+                            "save, load, exit");
             }
         }
     }

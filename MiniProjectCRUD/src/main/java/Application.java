@@ -4,7 +4,7 @@ import project.CommandLine;
  * Java Prof. MiniProjectCRUD
  *
  * @author Dzmitry Kryvialeu
- * @version 0.1
+ * @version 0.2
  */
 
 public class Application {
