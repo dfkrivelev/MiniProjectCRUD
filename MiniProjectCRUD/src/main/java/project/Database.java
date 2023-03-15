@@ -157,7 +157,7 @@ public class Database {
     }
 
     public void sort() {
-        String sortName = DataUtil.getString("sort: n[ame], p[osition], s[alary], a[ge]");
+        String sortName = DataUtil.getString("sort: name, lastName, position, salary, age");
         Comparator<Employee> comparator = null;
         switch (sortName.toLowerCase()) {
             case "name":
